@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AnalystForge is a financial analyst automation platform for valuation, M&A execution and equity research workflows.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#071426">
+  <title>AnalystForge | Financial Analyst Automation Platform</title>
+  <link rel="icon" type="image/png" href="/static/brand/analystforge-mark.png">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="final-site analystforge-site">
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <header class="site-topbar app-header" id="site-topbar">
+    <div class="site-topbar__inner">
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open tools menu" aria-controls="tool-sidebar" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="brand-block" href="#home" id="brand-home-link" aria-label="Go to AnalystForge homepage">
+        <img class="brand-logo" src="/static/brand/analystforge-logo.png" alt="AnalystForge">
+        <span class="brand-mark" aria-hidden="true" style="display:none">AF</span>
+        <span class="sr-only">Financial Analyst Automation Platform</span>
+      </a>
+      <div class="topbar-context" aria-hidden="true"><span>ANALYST WORKBENCH</span></div>
+      <button type="button" class="topbar-tools-button" id="topbar-tools-button">Open workbench</button>
+    </div>
+  </header>
+
+  <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
+  <aside class="tool-sidebar" id="tool-sidebar" aria-hidden="true" aria-label="Tool navigation">
+    <div class="tool-sidebar__brand">
+      <img src="/static/brand/analystforge-mark.png" alt="" aria-hidden="true">
+      <div><p class="sidebar-kicker">ANALYST WORKBENCH</p><strong>AnalystForge</strong></div>
+    </div>
+    <div class="tool-sidebar__head">
+      <div><p class="sidebar-kicker">WORKFLOWS</p><h2>Choose a tool</h2></div>
+      <button type="button" class="sidebar-close" id="sidebar-close" aria-label="Close tools menu">×</button>
+    </div>
+    <button type="button" class="sidebar-home" id="sidebar-home">Home</button>
+    <nav class="tabs sidebar-nav" role="tablist" aria-label="Analyst workflows">
+      <button type="button" class="tab sidebar-tool" role="tab" id="tab-ib" aria-selected="false" aria-controls="panel-ib" tabindex="-1" data-index="01" data-summary="DCF • Sensitivity • Excel">Valuation</button>
+      <button type="button" class="tab sidebar-tool" role="tab" id="tab-ma" aria-selected="false" aria-controls="panel-ma" tabindex="-1" data-index="02" data-summary="Deal model • A/D • Excel">M&amp;A Execution</button>
+      <button type="button" class="tab sidebar-tool" role="tab" id="tab-er" aria-selected="false" aria-controls="panel-er" tabindex="-1" data-index="03" data-summary="Earnings • Note • Excel">Equity Research</button>
+    </nav>
+    <div class="tool-sidebar__footer">
+      <p>Three tested Python workflows with transparent assumptions and downloadable analyst outputs.</p>
+      <span>Controlled sample data • Not investment advice</span>
+    </div>
+  </aside>
+
+  <main>
+    <section class="home-view" id="home-view" aria-label="AnalystForge introduction">
+      <section class="af-hero" id="home">
+        <div class="hero-grid-glow" aria-hidden="true"></div>
+        <div class="hero-morph hero-morph--one" aria-hidden="true"></div>
+        <div class="hero-morph hero-morph--two" aria-hidden="true"></div>
+        <div class="af-hero__inner">
+          <div class="af-hero__copy reveal">
+            <img class="hero-logo" src="/static/brand/analystforge-logo.png" alt="AnalystForge">
+            <p class="hero-eyebrow">FINANCIAL ANALYSIS, FORGED INTO WORKFLOWS</p>
+            <h1>From assumptions to analyst-ready deliverables.</h1>
+            <p class="hero-lede">AnalystForge brings valuation, transaction execution and equity research workflows into one transparent workbench — combining tested Python financial engines, interactive dashboards and formula-driven Excel outputs.</p>
+            <p class="legacy-platform-copy sr-only">Valuation, transaction execution and equity research workflows powered by tested Python financial engines.</p>
+            <div class="hero-actions">
+              <button type="button" class="btn-primary hero-cta" id="hero-explore-tools">Open the workbench <span aria-hidden="true">↗</span></button>
+              <button type="button" class="btn-secondary hero-secondary home-scroll" data-home-anchor="showcase-section">Explore outputs</button>
+            </div>
+            <div class="header-meta hero-capabilities" aria-label="Platform capabilities">
+              <span>3 Workflows</span><span>Python Engines</span><span>Excel Outputs</span>
+            </div>
+            <div class="hero-trust-row" aria-label="Model characteristics">
+              <span><i></i> Controlled sample data</span><span><i></i> Transparent calculations</span><span><i></i> No black-box valuation</span>
+            </div>
+          </div>
+          <div class="hero-stage reveal" id="hero-stage" aria-label="Interactive workflow preview">
+            <div class="stage-core"><span>AF</span><small>ANALYST<br>WORKBENCH</small></div>
+            <button type="button" class="hero-flow-card hero-flow-card--valuation is-active" data-hero-tool="panel-ib" data-open-tool="panel-ib">
+              <span>01</span><strong>Valuation</strong><small>DCF • WACC • Sensitivity</small>
+            </button>
+            <button type="button" class="hero-flow-card hero-flow-card--ma" data-hero-tool="panel-ma" data-open-tool="panel-ma">
+              <span>02</span><strong>M&amp;A Execution</strong><small>Deal model • A/D • Ownership</small>
+            </button>
+            <button type="button" class="hero-flow-card hero-flow-card--er" data-hero-tool="panel-er" data-open-tool="panel-er">
+              <span>03</span><strong>Equity Research</strong><small>Earnings • Guidance • Note</small>
+            </button>
+            <div class="stage-orbit stage-orbit--one" aria-hidden="true"></div>
+            <div class="stage-orbit stage-orbit--two" aria-hidden="true"></div>
+          </div>
+        </div>
+        <button class="scroll-cue home-scroll" data-home-anchor="platform-section" type="button" aria-label="Scroll to platform overview"><span>SCROLL</span><i></i></button>
+      </section>
+
+      <section class="home-section platform-section reveal" id="platform-section">
+        <div class="section-heading section-heading--center">
+          <p class="section-kicker">THE PLATFORM</p>
+          <h2>Three workflows. One analytical system.</h2>
+          <p>Each module follows the same disciplined path: structure the assumptions, run the tested engine, review the result, and export a professional deliverable.</p>
+        </div>
+        <div class="workflow-cards">
+          <article class="workflow-card" data-open-tool="panel-ib" tabindex="0" role="button">
+            <div class="workflow-card__top"><span>01</span><em>VALUATION</em></div>
+            <h3>Build the investment case.</h3>
+            <p>Forecast cash flows, value the enterprise, test WACC and terminal-growth assumptions, and export a reconciled DCF model.</p>
+            <div class="workflow-tags"><span>DCF</span><span>Sensitivity</span><span>Excel</span></div>
+            <button type="button">Open Valuation <b>↗</b></button>
+          </article>
+          <article class="workflow-card" data-open-tool="panel-ma" tabindex="0" role="button">
+            <div class="workflow-card__top"><span>02</span><em>M&amp;A EXECUTION</em></div>
+            <h3>Structure the transaction.</h3>
+            <p>Analyse purchase price, funding, ownership, purchase accounting, accretion / dilution and deal sensitivities.</p>
+            <div class="workflow-tags"><span>Sources &amp; Uses</span><span>A/D</span><span>Merger Model</span></div>
+            <button type="button">Open M&amp;A <b>↗</b></button>
+          </article>
+          <article class="workflow-card" data-open-tool="panel-er" tabindex="0" role="button">
+            <div class="workflow-card__top"><span>03</span><em>EQUITY RESEARCH</em></div>
+            <h3>Review the earnings story.</h3>
+            <p>Compare actuals with consensus, analyse guidance and valuation, and produce an Excel model and one-page research note.</p>
+            <div class="workflow-tags"><span>Earnings</span><span>Guidance</span><span>Research Note</span></div>
+            <button type="button">Open Research <b>↗</b></button>
+          </article>
+        </div>
+      </section>
+
+      <section class="home-section usage-section reveal" id="usage-section">
+        <div class="section-heading section-heading--center">
+          <p class="section-kicker">WHO IT IS FOR</p>
+          <h2>Learn the mechanics. Accelerate the workflow.</h2>
+          <p>AnalystForge is designed to be useful at two different levels without hiding how the analysis works.</p>
+        </div>
+        <div class="usage-columns">
+          <article class="usage-column">
+            <span class="usage-number">01</span><div class="usage-icon" aria-hidden="true">◫</div>
+            <h3>For students</h3>
+            <p>Turn textbook concepts into something you can change, inspect and explain.</p>
+            <ul>
+              <li>Understand DCF, M&amp;A and earnings-review mechanics visually.</li>
+              <li>Trace assumptions into valuation, ownership and EPS outcomes.</li>
+              <li>Download structured Excel models and inspect formula logic.</li>
+              <li>Use controlled data to practise before working with live information.</li>
+            </ul>
+          </article>
+          <article class="usage-column">
+            <span class="usage-number">02</span><div class="usage-icon" aria-hidden="true">↗</div>
+            <h3>For professionals</h3>
+            <p>Prototype repeatable finance workflows and communicate outputs more consistently.</p>
+            <ul>
+              <li>Standardise valuation, transaction and post-earnings review workflows.</li>
+              <li>Generate clean dashboards and Excel-ready deliverables quickly.</li>
+              <li>Review transparent calculations, model checks and sensitivities.</li>
+              <li>Use the platform as an analytical demonstration and communication layer.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="home-section process-section reveal" id="process-section">
+        <div class="section-heading section-heading--split">
+          <div><p class="section-kicker">HOW IT WORKS</p><h2>A transparent analytical pipeline.</h2></div>
+          <p>Every workflow is deterministic: the interface gathers inputs, the Python engine performs the finance logic, and the output layer turns results into dashboards, spreadsheets or research deliverables.</p>
+        </div>
+        <div class="process-track">
+          <article><span>01</span><h3>Structure inputs</h3><p>Controlled assumptions keep the logic visible and easy to audit.</p></article>
+          <i aria-hidden="true">→</i>
+          <article><span>02</span><h3>Run the engine</h3><p>Tested Python modules calculate the core finance mechanics.</p></article>
+          <i aria-hidden="true">→</i>
+          <article><span>03</span><h3>Review visually</h3><p>Dashboards surface the key outputs, sensitivities and bridges.</p></article>
+          <i aria-hidden="true">→</i>
+          <article><span>04</span><h3>Export</h3><p>Download formula-driven Excel models and research outputs.</p></article>
+        </div>
+      </section>
+
+      <section class="home-section showcase-section reveal" id="showcase-section">
+        <div class="section-heading section-heading--split">
+          <div>
+            <p class="section-kicker">AUTHENTIC WORKFLOW OUTPUTS</p>
+            <h2>See the work — without the laptop chrome.</h2>
+            <p>These are cropped captures of the actual controlled-sample dashboards, workbooks and research outputs produced during the build.</p>
+          </div>
+          <div class="rail-controls" aria-label="Screenshot carousel controls">
+            <button type="button" class="rail-button" data-scroll-rail="home-showcase-rail" data-direction="-1" aria-label="Previous screenshots">←</button>
+            <button type="button" class="rail-button" data-scroll-rail="home-showcase-rail" data-direction="1" aria-label="Next screenshots">→</button>
+          </div>
+        </div>
+        <div class="showcase-rail" id="home-showcase-rail">
+          <article class="showcase-card screenshot-open" tabindex="0" role="button" data-image="/static/showcase/valuation-dashboard.webp" data-caption="Valuation dashboard — actual controlled-sample workflow capture">
+            <div class="shot-frame"><img src="/static/showcase/valuation-dashboard.webp" alt="Cropped valuation dashboard output" loading="lazy"><span>ACTUAL WORKFLOW CAPTURE</span></div>
+            <div><span>VALUATION</span><h3>DCF dashboard</h3><p>Implied value, DCF bridge, sensitivity and forecast analytics.</p></div>
+          </article>
+          <article class="showcase-card screenshot-open" tabindex="0" role="button" data-image="/static/showcase/valuation-excel.webp" data-caption="Valuation Excel model — actual controlled-sample output">
+            <div class="shot-frame"><img src="/static/showcase/valuation-excel.webp" alt="Cropped DCF Excel output" loading="lazy"><span>FORMULA-DRIVEN EXCEL</span></div>
+            <div><span>VALUATION</span><h3>Excel valuation model</h3><p>Professional workbook with formulas, sensitivities and model checks.</p></div>
+          </article>
+          <article class="showcase-card screenshot-open" tabindex="0" role="button" data-image="/static/showcase/ma-dashboard.webp" data-caption="M&A execution dashboard — actual controlled-sample workflow capture">
+            <div class="shot-frame"><img src="/static/showcase/ma-dashboard.webp" alt="Cropped M&A execution dashboard" loading="lazy"><span>ACTUAL WORKFLOW CAPTURE</span></div>
+            <div><span>M&amp;A EXECUTION</span><h3>Deal analysis</h3><p>Purchase price, funding, ownership and EPS impact.</p></div>
+          </article>
+          <article class="showcase-card screenshot-open" tabindex="0" role="button" data-image="/static/showcase/ma-excel.webp" data-caption="M&A merger model — actual controlled-sample output">
+            <div class="shot-frame"><img src="/static/showcase/ma-excel.webp" alt="M&A Excel merger model" loading="lazy"><span>FORMULA-DRIVEN EXCEL</span></div>
+            <div><span>M&amp;A EXECUTION</span><h3>Merger model</h3><p>Transaction snapshot, ownership, purchase accounting and sensitivity.</p></div>
+          </article>
+          <article class="showcase-card screenshot-open" tabindex="0" role="button" data-image="/static/showcase/er-dashboard.webp" data-caption="Equity research dashboard — actual controlled-sample workflow capture">
+            <div class="shot-frame"><img src="/static/showcase/er-dashboard.webp" alt="Cropped equity research dashboard" loading="lazy"><span>ACTUAL WORKFLOW CAPTURE</span></div>
+            <div><span>EQUITY RESEARCH</span><h3>Earnings review</h3><p>Consensus, guidance, profitability, valuation and commentary.</p></div>
+          </article>
+          <article class="showcase-card screenshot-open" tabindex="0" role="button" data-image="/static/showcase/er-report.webp" data-caption="One-page equity research note — actual controlled-sample output">
+            <div class="shot-frame"><img src="/static/showcase/er-report.webp" alt="One-page equity research note" loading="lazy"><span>PRINT-READY OUTPUT</span></div>
+            <div><span>EQUITY RESEARCH</span><h3>Research note</h3><p>Sell-side-inspired one-page post-earnings output.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="home-section creator-section reveal" id="creator-section">
+        <div class="creator-layout">
+          <div class="creator-identity">
+            <img class="creator-mark" src="/static/brand/analystforge-mark.png" alt="" aria-hidden="true">
+            <p class="section-kicker">BUILT BY</p>
+            <h2>Jasjit Singh Bhatia</h2>
+            <p class="creator-role">Warwick Business School graduate • MSc Business &amp; Finance</p>
+            <div class="creator-company-chips" aria-label="Experience across companies"><span>Tesco PLC</span><span>RACDEE Consulting</span><span>RSM US LLP</span><span>FA Investment &amp; Insurance Services</span></div>
+          </div>
+          <div class="creator-content">
+            <div class="creator-cloud">
+              <p>I’m Jasjit, a Warwick Business School graduate with an MSc in Business and Finance and experience spanning treasury, financial analysis, audit and investment services. At Tesco PLC I worked on FX and interest-rate exposure and supported treasury discussions around hedging and capital allocation. At RACDEE Consulting I worked with large cost datasets, variance analysis, cash flow and working-capital reviews. My earlier experience includes audit work at RSM US LLP and portfolio, market and investment-analysis support at FA Investment &amp; Insurance Services.</p>
+              <p>Across those roles I have worked with client and stakeholder presentations, investment research, portfolio review, balance-sheet analysis, cash-flow analysis and valuation support. My technical toolkit includes Advanced Excel, PowerPoint, Bloomberg Terminal and BQL, Python, FastAPI, pytest, HTML/CSS/JavaScript, DCF valuation, sensitivity analysis, FX and rates. AnalystForge brings those interests together into a practical platform focused on making financial-model mechanics easier to understand, test and communicate.</p>
+              <div class="creator-skill-row" aria-label="Core skills"><span>Financial modelling</span><span>Valuation</span><span>Python</span><span>Excel automation</span><span>Bloomberg / BQL</span><span>Research &amp; presentation</span></div>
+            </div>
+            <div class="social-links" aria-label="Creator contact links">
+              <a href="https://www.linkedin.com/in/jasjitsinghbhatia/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn" class="social-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.3 3.8a2.4 2.4 0 1 1 0 4.8 2.4 2.4 0 0 1 0-4.8ZM3.3 10h4v10.7h-4V10Zm6.4 0h3.8v1.5h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v5.1h-4v-4.5c0-1.1 0-3-1.9-3-1.9 0-2.2 1.5-2.2 2.9v4.6h-4V10Z"/></svg></a>
+              <a href="https://www.instagram.com/jasjitsingh_17/" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram" class="social-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.7" cy="6.8" r="1" class="social-dot"/></svg></a>
+              <a href="mailto:jasjitsingh170@gmail.com" aria-label="Email Jasjit" title="Email" class="social-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.2h17v11.6h-17V6.2Z"/><path d="m4.4 7 7.6 6 7.6-6"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section closing-cta reveal" id="closing-cta">
+        <div><p class="section-kicker">READY TO EXPLORE?</p><h2>Open a workflow and follow the analysis from input to deliverable.</h2></div>
+        <button type="button" class="btn-primary" id="closing-open-tools">Choose a workflow <span aria-hidden="true">↗</span></button>
+      </section>
+    </section>
+
+    <div class="tool-shell content" id="tool-shell">
+      <section aria-labelledby="tab-ib" class="panel tool-page" data-domain="Investment Banking" hidden="" id="panel-ib" role="tabpanel">
+<div class="panel-head">
+<div>
+<p class="workflow-kicker">VALUATION WORKFLOW</p>
+<h2>Valuation</h2>
+<p>DCF valuation, sensitivity analysis and downloadable financial modelling.</p>
+</div>
+<div class="panel-head__meta">
+<span class="workflow-badge">Python DCF Engine</span>
+<span class="workflow-state">Deterministic model</span>
+</div>
+</div><section aria-label="How to use Valuation" class="tool-guide">
+<div class="tool-guide__top">
+<div>
+<p class="tool-guide__eyebrow">HOW IT WORKS</p>
+<h3>From assumptions to analyst-ready output</h3>
+<p>Build a DCF, test key valuation assumptions and export a formula-driven Excel model with reconciliation checks.</p>
+<div class="tool-fact-row" aria-label="Valuation workflow highlights">
+<span><b>Models</b> DCF, WACC, terminal value</span><span><b>Tests</b> Sensitivity & reconciliation</span><span><b>Outputs</b> Dashboard + Excel</span>
+</div>
+</div>
+<button class="btn-primary tool-jump" data-scroll-target="dcf-form" type="button">Open the valuation model</button>
+</div>
+<div class="tool-preview-rail" data-tool-preview-rail="">
+<article class="tool-preview-card screenshot-open" data-caption="1. Enter assumptions" data-image="/static/showcase/valuation-input.webp" role="button" tabindex="0">
+<div class="tool-preview-card__image"><img alt="1. Enter assumptions — illustrative controlled-sample screenshot" loading="lazy" src="/static/showcase/valuation-input.webp"/></div>
+<div class="tool-preview-card__copy"><span>1. Enter assumptions</span><p>Set company, operating and valuation assumptions in a structured input form.</p></div>
+</article>
+<article class="tool-preview-card screenshot-open" data-caption="2. Review the analysis" data-image="/static/showcase/valuation-dashboard.webp" role="button" tabindex="0">
+<div class="tool-preview-card__image"><img alt="2. Review the analysis — illustrative controlled-sample screenshot" loading="lazy" src="/static/showcase/valuation-dashboard.webp"/></div>
+<div class="tool-preview-card__copy"><span>2. Review the analysis</span><p>Inspect implied value, the DCF bridge, sensitivity matrix and forecast charts.</p></div>
+</article>
+<article class="tool-preview-card screenshot-open" data-caption="3. Export the model" data-image="/static/showcase/valuation-excel.webp" role="button" tabindex="0">
+<div class="tool-preview-card__image"><img alt="3. Export the model — illustrative controlled-sample screenshot" loading="lazy" src="/static/showcase/valuation-excel.webp"/></div>
+<div class="tool-preview-card__copy"><span>3. Export the model</span><p>Download the analyst-style Excel workbook with formulas, sensitivities and model checks.</p></div>
+</article>
+</div>
+</section>
+<article class="card">
+<div class="card-head">
+<h3>DCF Valuation</h3>
+<p>Automate a discounted cash flow valuation from controlled financial assumptions.</p>
+</div>
+<form class="dcf-form" id="dcf-form">
+<div class="form-grid">
+<fieldset>
+<legend>Company Information</legend>
+<div class="field">
+<label for="company-name">Company Name</label>
+<input id="company-name" name="company_name" required="" type="text" value="Apple Inc."/>
+</div>
+<div class="field">
+<label for="ticker">Ticker</label>
+<input id="ticker" name="ticker" required="" type="text" value="AAPL"/>
+</div>
+<div class="field">
+<label for="share-price">Current Share Price</label>
+<input id="share-price" min="0.01" name="share_price" required="" step="0.01" type="number" value="255"/>
+</div>
+</fieldset>
+<fieldset>
+<legend>Operating Assumptions</legend>
+<div class="field">
+<label for="forecast-years">Forecast Years</label>
+<input id="forecast-years" max="10" min="1" name="forecast_years" required="" step="1" type="number" value="5"/>
+</div>
+<div class="field">
+<label for="revenue-growth">Revenue Growth</label>
+<div class="input-wrap">
+<input id="revenue-growth" name="revenue_growth" required="" step="0.1" type="number" value="8"/>
+<span aria-hidden="true" class="suffix">%</span>
+</div>
+</div>
+<div class="field">
+<label for="ebitda-margin">EBITDA Margin</label>
+<div class="input-wrap">
+<input id="ebitda-margin" name="ebitda_margin" required="" step="0.1" type="number" value="33"/>
+<span aria-hidden="true" class="suffix">%</span>
+</div>
+</div>
+<div class="field">
+<label for="tax-rate">Tax Rate</label>
+<div class="input-wrap">
+<input id="tax-rate" max="100" min="0" name="tax_rate" required="" step="0.1" type="number" value="16"/>
+<span aria-hidden="true" class="suffix">%</span>
+</div>
+</div>
+</fieldset>
+<fieldset>
+<legend>Valuation Assumptions</legend>
+<div class="field">
+<label for="wacc">WACC</label>
+<div class="input-wrap">
+<input id="wacc" min="0.01" name="wacc" required="" step="0.01" type="number" value="8.5"/>
+<span aria-hidden="true" class="suffix">%</span>
+</div>
+</div>
+<div class="field">
+<label for="terminal-growth">Terminal Growth</label>
+<div class="input-wrap">
+<input id="terminal-growth" min="0" name="terminal_growth" required="" step="0.1" type="number" value="2.5"/>
+<span aria-hidden="true" class="suffix">%</span>
+</div>
+</div>
+<div class="field">
+<label for="net-debt">Net Debt</label>
+<input id="net-debt" name="net_debt" required="" step="1" type="number" value="50000"/>
+</div>
+<div class="field">
+<label for="shares-outstanding">Shares Outstanding</label>
+<input id="shares-outstanding" min="1" name="shares_outstanding" required="" step="1" type="number" value="15000"/>
+</div>
+</fieldset>
+</div>
+<div class="form-actions">
+<button class="btn-primary" id="run-dcf" type="submit">Run DCF Valuation</button>
+<button class="btn-secondary" disabled="" id="download-excel" type="button">Download Excel Model</button>
+<p aria-live="polite" class="status" id="dcf-status" role="status"></p>
+</div>
+<p class="disclosure">Illustrative model using controlled sample data. Not investment advice.</p>
+</form>
+</article>
+<article aria-labelledby="output-title" class="card results-card">
+<div class="card-head card-head--split">
+<div>
+<h3 id="output-title">Valuation Output</h3>
+<p id="output-subtitle">Run the DCF valuation to generate results.</p>
+</div>
+<span class="model-chip">DCF / Perpetuity Growth</span>
+</div>
+<dl class="metrics metrics--headline">
+<div class="metric metric--primary"><dt>Implied Share Price</dt><dd id="out-implied-price">—</dd></div>
+<div class="metric"><dt>Upside / (Downside)</dt><dd id="out-upside">—</dd></div>
+<div class="metric"><dt>Enterprise Value</dt><dd id="out-enterprise-value">—</dd></div>
+<div class="metric"><dt>Equity Value</dt><dd id="out-equity-value">—</dd></div>
+</dl>
+<dl class="metrics metrics--secondary" id="secondary-metrics">
+<div class="metric metric--compact"><dt>Current Share Price</dt><dd id="out-current-price">—</dd></div>
+<div class="metric metric--compact"><dt>WACC</dt><dd id="out-wacc">—</dd></div>
+<div class="metric metric--compact"><dt>Terminal Growth</dt><dd id="out-terminal-growth">—</dd></div>
+<div class="metric metric--compact"><dt>Forecast Period</dt><dd id="out-forecast-period">—</dd></div>
+<div class="metric metric--compact"><dt>Terminal Value</dt><dd id="out-terminal-value">—</dd></div>
+<div class="metric metric--compact"><dt>PV of Terminal Value</dt><dd id="out-pv-terminal">—</dd></div>
+</dl>
+</article>
+<section class="analytics-grid" hidden="" id="analytics-section">
+<article class="card analytics-card">
+<div class="card-head">
+<h3>DCF Bridge</h3>
+<p>Reconciliation from discounted cash flows to equity value.</p>
+</div>
+<div aria-label="DCF valuation bridge" class="bridge" id="dcf-bridge"></div>
+</article>
+<article class="card analytics-card">
+<div class="card-head card-head--split">
+<div>
+<h3>Sensitivity Analysis</h3>
+<p>Implied share price across WACC and terminal growth scenarios.</p>
+</div>
+<span class="mini-status" id="sensitivity-status">—</span>
+</div>
+<div class="sensitivity-wrap" id="sensitivity-wrap"></div>
+<p class="chart-note">Base case is outlined. Cells are calculated by the Python DCF engine.</p>
+</article>
+</section>
+<section class="charts-grid" hidden="" id="charts-section">
+<article class="card analytics-card">
+<div class="card-head">
+<h3>Operating Forecast</h3>
+<p>Revenue bars with EBITDA and UFCF trend lines.</p>
+</div>
+<div aria-hidden="true" class="chart-legend">
+<span><i class="legend-swatch legend-revenue"></i>Revenue</span>
+<span><i class="legend-line legend-ebitda"></i>EBITDA</span>
+<span><i class="legend-line legend-ufcf"></i>UFCF</span>
+</div>
+<div class="chart-shell" id="operating-chart"></div>
+</article>
+<article class="card analytics-card">
+<div class="card-head">
+<h3>Cash Flow Discounting</h3>
+<p>Unlevered free cash flow versus present value by forecast year.</p>
+</div>
+<div aria-hidden="true" class="chart-legend">
+<span><i class="legend-swatch legend-ufcf-bar"></i>UFCF</span>
+<span><i class="legend-swatch legend-pv"></i>PV of UFCF</span>
+</div>
+<div class="chart-shell" id="discount-chart"></div>
+</article>
+</section>
+<article class="card" hidden="" id="forecast-card">
+<div class="card-head card-head--split">
+<div>
+<h3>Forecast Cash Flow Detail</h3>
+<p>Core operating and discounting line items returned by the Python engine.</p>
+</div>
+<span class="model-chip model-chip--muted">Controlled Sample Data</span>
+</div>
+<div class="table-wrap">
+<table class="forecast-table">
+<thead>
+<tr>
+<th>Year</th>
+<th>Revenue</th>
+<th>EBITDA</th>
+<th>EBIT</th>
+<th>UFCF</th>
+<th>Discount Factor</th>
+<th>PV of UFCF</th>
+</tr>
+</thead>
+<tbody id="forecast-table-body"></tbody>
+</table>
+</div>
+</article>
+</section>
+      <section aria-labelledby="tab-ma" class="panel tool-page" hidden="" id="panel-ma" role="tabpanel">
+<div class="panel-head">
+<div>
+<p class="workflow-kicker">TRANSACTION WORKFLOW</p>
+<h2>M&amp;A Execution</h2>
+<p>Deal structuring, financing, purchase accounting and accretion / dilution analysis.</p>
+</div>
+<div class="panel-head__meta">
+<span class="workflow-badge">Python M&amp;A Engine</span>
+<span class="workflow-state">Deal execution</span>
+</div>
+</div><section aria-label="How to use M&amp;A Execution" class="tool-guide">
+<div class="tool-guide__top">
+<div>
+<p class="tool-guide__eyebrow">HOW IT WORKS</p>
+<h3>From assumptions to analyst-ready output</h3>
+<p>Structure an acquisition, analyse funding and purchase accounting, and test EPS accretion / dilution before exporting a merger model.</p>
+<div class="tool-fact-row" aria-label="M&A workflow highlights">
+<span><b>Models</b> Purchase price, sources &amp; uses</span><span><b>Tests</b> Accretion / dilution sensitivity</span><span><b>Outputs</b> Dashboard + merger model</span>
+</div>
+</div>
+<button class="btn-primary tool-jump" data-scroll-target="ma-form" type="button">Open the M&amp;A model</button>
+</div>
+<div class="tool-preview-rail" data-tool-preview-rail="">
+<article class="tool-preview-card screenshot-open" data-caption="1. Structure the deal" data-image="/static/showcase/ma-input.webp" role="button" tabindex="0">
+<div class="tool-preview-card__image"><img alt="1. Structure the deal — illustrative controlled-sample screenshot" loading="lazy" src="/static/showcase/ma-input.webp"/></div>
+<div class="tool-preview-card__copy"><span>1. Structure the deal</span><p>Enter acquirer, target, consideration, financing and purchase-accounting assumptions.</p></div>
+</article>
+<article class="tool-preview-card screenshot-open" data-caption="2. Review deal outputs" data-image="/static/showcase/ma-dashboard.webp" role="button" tabindex="0">
+<div class="tool-preview-card__image"><img alt="2. Review deal outputs — illustrative controlled-sample screenshot" loading="lazy" src="/static/showcase/ma-dashboard.webp"/></div>
+<div class="tool-preview-card__copy"><span>2. Review deal outputs</span><p>Assess purchase price, funding, ownership, goodwill and accretion / dilution.</p></div>
+</article>
+<article class="tool-preview-card screenshot-open" data-caption="3. Export the merger model" data-image="/static/showcase/ma-excel.webp" role="button" tabindex="0">
+<div class="tool-preview-card__image"><img alt="3. Export the merger model — illustrative controlled-sample screenshot" loading="lazy" src="/static/showcase/ma-excel.webp"/></div>
+<div class="tool-preview-card__copy"><span>3. Export the merger model</span><p>Download a professional Excel model with sources &amp; uses, sensitivities and model checks.</p></div>
+</article>
+</div>
+</section>
+<article class="card">
+<div class="card-head card-head--split">
+<div>
+<h3>Transaction Assumptions</h3>
+<p>Structure a controlled acquisition case and evaluate purchase price, financing, ownership, purchase accounting and EPS impact.</p>
+</div>
+<span class="model-chip model-chip--muted">Controlled Sample Deal</span>
+</div>
+<form class="ma-form" id="ma-form">
+<div class="ma-form-grid">
+<fieldset>
+<legend>Acquirer</legend>
+<div class="field"><label for="ma-acquirer-name">Acquirer Name</label><input id="ma-acquirer-name" required="" type="text" value="Apex Systems plc"/></div>
+<div class="field"><label for="ma-acquirer-ticker">Ticker</label><input id="ma-acquirer-ticker" required="" type="text" value="APX"/></div>
+<div class="field"><label for="ma-acquirer-share-price">Share Price</label><input id="ma-acquirer-share-price" min="0.01" required="" step="0.01" type="number" value="40"/></div>
+<div class="field"><label for="ma-acquirer-shares">Shares Outstanding (m)</label><input id="ma-acquirer-shares" min="0.01" required="" step="0.01" type="number" value="250"/></div>
+<div class="field"><label for="ma-acquirer-net-income">Net Income (m)</label><input id="ma-acquirer-net-income" min="0.01" required="" step="0.01" type="number" value="600"/></div>
+</fieldset>
+<fieldset>
+<legend>Target</legend>
+<div class="field"><label for="ma-target-name">Target Name</label><input id="ma-target-name" required="" type="text" value="Meridian Analytics plc"/></div>
+<div class="field"><label for="ma-target-ticker">Ticker</label><input id="ma-target-ticker" required="" type="text" value="MDA"/></div>
+<div class="field"><label for="ma-target-share-price">Unaffected Share Price</label><input id="ma-target-share-price" min="0.01" required="" step="0.01" type="number" value="20"/></div>
+<div class="field"><label for="ma-target-shares">Shares Outstanding (m)</label><input id="ma-target-shares" min="0.01" required="" step="0.01" type="number" value="100"/></div>
+<div class="field"><label for="ma-target-net-income">Net Income (m)</label><input id="ma-target-net-income" min="0" required="" step="0.01" type="number" value="120"/></div>
+<div class="field"><label for="ma-target-revenue">LTM Revenue (m)</label><input id="ma-target-revenue" min="0.01" required="" step="0.01" type="number" value="1500"/></div>
+<div class="field"><label for="ma-target-ebitda">LTM EBITDA (m)</label><input id="ma-target-ebitda" min="0.01" required="" step="0.01" type="number" value="250"/></div>
+<div class="field"><label for="ma-target-debt">Debt (m)</label><input id="ma-target-debt" min="0" required="" step="0.01" type="number" value="500"/></div>
+<div class="field"><label for="ma-target-cash">Cash (m)</label><input id="ma-target-cash" min="0" required="" step="0.01" type="number" value="200"/></div>
+<div class="field"><label for="ma-target-book-equity">Book Equity (m)</label><input id="ma-target-book-equity" min="0.01" required="" step="0.01" type="number" value="900"/></div>
+</fieldset>
+<fieldset>
+<legend>Deal &amp; Financing</legend>
+<div class="field"><label for="ma-currency">Currency</label><input id="ma-currency" required="" type="text" value="GBP"/></div>
+<div class="field"><label for="ma-offer-price">Offer Price / Share</label><input id="ma-offer-price" min="0.01" required="" step="0.01" type="number" value="25"/></div>
+<div class="field"><label for="ma-cash-pct">Cash Consideration</label><div class="input-wrap"><input id="ma-cash-pct" max="100" min="0" required="" step="1" type="number" value="50"/><span class="suffix">%</span></div></div>
+<div class="field"><label for="ma-stock-pct">Stock Consideration</label><div class="input-wrap"><input id="ma-stock-pct" max="100" min="0" required="" step="1" type="number" value="50"/><span class="suffix">%</span></div></div>
+<div class="field"><label for="ma-cash-on-hand">Cash on Hand Used (m)</label><input id="ma-cash-on-hand" min="0" required="" step="0.01" type="number" value="500"/></div>
+<div class="field"><label for="ma-new-debt-rate">New Debt Interest Rate</label><div class="input-wrap"><input id="ma-new-debt-rate" max="100" min="0" required="" step="0.1" type="number" value="5.5"/><span class="suffix">%</span></div></div>
+<div class="field"><label for="ma-cash-interest-rate">Cash Interest Rate</label><div class="input-wrap"><input id="ma-cash-interest-rate" max="100" min="0" required="" step="0.1" type="number" value="2.0"/><span class="suffix">%</span></div></div>
+<div class="field"><label for="ma-tax-rate">Tax Rate</label><div class="input-wrap"><input id="ma-tax-rate" max="99.9" min="0" required="" step="0.1" type="number" value="25"/><span class="suffix">%</span></div></div>
+<div class="field"><label for="ma-synergies">Annual Pre-Tax Synergies (m)</label><input id="ma-synergies" min="0" required="" step="0.01" type="number" value="100"/></div>
+</fieldset>
+<fieldset>
+<legend>Purchase Accounting</legend>
+<div class="field"><label for="ma-intangible-writeup">Identifiable Intangible Write-Up (m)</label><input id="ma-intangible-writeup" min="0" required="" step="0.01" type="number" value="300"/></div>
+<div class="field"><label for="ma-amortization-years">Amortization Period (years)</label><input id="ma-amortization-years" min="1" required="" step="1" type="number" value="10"/></div>
+<div class="ma-input-note">
+<strong>Model scope</strong>
+<span>Simplified purchase accounting and EPS accretion / dilution for transaction-execution demonstration.</span>
+</div>
+</fieldset>
+</div>
+<div class="form-actions">
+<button class="btn-primary" id="run-ma" type="submit">Run Deal Analysis</button>
+<button class="btn-secondary" disabled="" id="download-ma-excel" type="button">Download Merger Model</button>
+<p aria-live="polite" class="status" id="ma-status" role="status"></p>
+</div>
+<p class="disclosure">Illustrative transaction using controlled sample data for fictional companies. Figures are analytical demonstrations, not transaction advice.</p>
+</form>
+</article>
+<section hidden="" id="ma-dashboard">
+<article class="card ma-deal-header">
+<div class="ma-deal-header__row">
+<div>
+<p class="ma-eyebrow">TRANSACTION OVERVIEW</p>
+<h3 id="ma-deal-title">—</h3>
+<p class="ma-deal-subtitle" id="ma-deal-subtitle">—</p>
+</div>
+<div class="ma-classification-box">
+<span>EPS Impact</span>
+<strong id="ma-classification">—</strong>
+<small id="ma-accretion-badge">—</small>
+</div>
+</div>
+</article>
+<article class="card">
+<div class="card-head card-head--split">
+<div><h3>Headline Transaction Metrics</h3><p>Core purchase price, valuation and EPS outputs returned by the Python M&amp;A engine.</p></div>
+<span class="model-chip">Deal Execution</span>
+</div>
+<dl class="ma-headline-grid">
+<div><dt>Offer Price</dt><dd id="ma-out-offer-price">—</dd></div>
+<div><dt>Offer Premium</dt><dd id="ma-out-premium">—</dd></div>
+<div><dt>Equity Purchase Price</dt><dd id="ma-out-equity-value">—</dd></div>
+<div><dt>Enterprise Value</dt><dd id="ma-out-enterprise-value">—</dd></div>
+<div><dt>EV / EBITDA</dt><dd id="ma-out-ev-ebitda">—</dd></div>
+<div class="ma-headline-accretion"><dt>EPS Accretion / (Dilution)</dt><dd id="ma-out-accretion">—</dd></div>
+</dl>
+</article>
+<section class="analytics-grid ma-analytics-grid">
+<article class="card analytics-card">
+<div class="card-head"><h3>Consideration &amp; Funding</h3><p>Cash / stock consideration and sources used to fund the cash component.</p></div>
+<div class="ma-consideration-bars" id="ma-consideration-bars"></div>
+<div class="ma-funding-strip" id="ma-funding-strip"></div>
+</article>
+<article class="card analytics-card">
+<div class="card-head"><h3>Pro Forma Ownership</h3><p>Ownership of the combined company after issuing transaction shares.</p></div>
+<div class="ma-ownership-wrap">
+<div class="ma-ownership-donut" id="ma-ownership-donut"><span id="ma-ownership-center">—</span></div>
+<div class="ma-ownership-legend">
+<div><i class="ma-legend-swatch existing"></i><span>Existing Acquirer</span><strong id="ma-existing-ownership">—</strong></div>
+<div><i class="ma-legend-swatch sellers"></i><span>Target Sellers</span><strong id="ma-seller-ownership">—</strong></div>
+<div class="ma-ownership-detail"><span>New Shares Issued</span><strong id="ma-new-shares">—</strong></div>
+<div class="ma-ownership-detail"><span>Exchange Ratio</span><strong id="ma-exchange-ratio">—</strong></div>
+</div>
+</div>
+</article>
+</section>
+<section class="analytics-grid ma-analytics-grid">
+<article class="card analytics-card">
+<div class="card-head"><h3>Accretion / Dilution Bridge</h3><p>Standalone EPS versus pro forma EPS and the key transaction earnings adjustments.</p></div>
+<dl class="ma-bridge-metrics">
+<div><dt>Acquirer Standalone EPS</dt><dd id="ma-standalone-eps">—</dd></div>
+<div><dt>Pro Forma EPS</dt><dd id="ma-proforma-eps">—</dd></div>
+<div><dt>Pro Forma Net Income</dt><dd id="ma-proforma-net-income">—</dd></div>
+<div><dt>Break-Even Pre-Tax Synergies</dt><dd id="ma-break-even-synergies">—</dd></div>
+</dl>
+<div class="ma-earnings-bridge" id="ma-earnings-bridge"></div>
+</article>
+<article class="card analytics-card">
+<div class="card-head"><h3>Purchase Accounting</h3><p>Simplified allocation of purchase consideration and incremental amortization.</p></div>
+<dl class="ma-purchase-grid">
+<div><dt>Target Book Equity</dt><dd id="ma-book-equity">—</dd></div>
+<div><dt>Intangible Write-Up</dt><dd id="ma-intangible-writeup-out">—</dd></div>
+<div><dt>Goodwill Created</dt><dd id="ma-goodwill">—</dd></div>
+<div><dt>Annual Incremental Amortization</dt><dd id="ma-amortization">—</dd></div>
+</dl>
+<div class="ma-purchase-stack" id="ma-purchase-stack"></div>
+</article>
+</section>
+<article class="card">
+<div class="card-head"><h3>Deal Execution Detail</h3><p>Transaction, financing and accretion / dilution outputs for banker review.</p></div>
+<div class="table-wrap">
+<table class="forecast-table ma-deal-table">
+<thead><tr><th>Category</th><th>Metric</th><th>Value</th><th>Interpretation</th></tr></thead>
+<tbody id="ma-deal-table-body"></tbody>
+</table>
+</div>
+</article>
+<section class="ma-commentary-grid">
+<article class="card">
+<div class="card-head"><h3>Key Deal Takeaways</h3><p>Deterministic summary generated by the M&amp;A engine.</p></div>
+<ol class="er-commentary-list ma-takeaways" id="ma-takeaways"></ol>
+</article>
+<article class="card">
+<div class="card-head"><h3>Execution Risks</h3><p>Transaction considerations to monitor through diligence and closing.</p></div>
+<ul class="er-commentary-list ma-risks" id="ma-risks"></ul>
+</article>
+</section>
+<article class="card ma-methodology-card">
+<div class="card-head"><h3>Methodology &amp; Limitations</h3></div>
+<p>The dashboard uses the tested Python M&amp;A engine for purchase price, funding, purchase accounting and EPS accretion / dilution. The model is intentionally simplified, uses controlled fictional data, excludes detailed balance-sheet consolidation and does not constitute transaction, investment or accounting advice.</p>
+</article>
+</section>
+</section>
+      <section aria-labelledby="tab-er" class="panel tool-page" hidden="" id="panel-er" role="tabpanel">
+<div class="panel-head">
+<div>
+<p class="workflow-kicker">RESEARCH WORKFLOW</p>
+<h2>Equity Research</h2>
+<p>Post-earnings analysis, guidance tracking, valuation and analyst outputs.</p>
+</div>
+<div class="panel-head__meta">
+<span class="workflow-badge">Python ER Engine</span>
+<span class="workflow-state">Analyst workflow</span>
+</div>
+</div><section aria-label="How to use Equity Research" class="tool-guide">
+<div class="tool-guide__top">
+<div>
+<p class="tool-guide__eyebrow">HOW IT WORKS</p>
+<h3>From assumptions to analyst-ready output</h3>
+<p>Review earnings versus consensus, guidance changes and valuation, then export an analyst workbook or one-page research note.</p>
+<div class="tool-fact-row" aria-label="Equity research workflow highlights">
+<span><b>Reviews</b> Earnings vs consensus</span><span><b>Tracks</b> Guidance & valuation</span><span><b>Outputs</b> Excel + research note</span>
+</div>
+</div>
+<button class="btn-primary tool-jump" data-scroll-target="er-form" type="button">Open the research workflow</button>
+</div>
+<div class="tool-preview-rail" data-tool-preview-rail="">
+<article class="tool-preview-card screenshot-open" data-caption="1. Load the earnings case" data-image="/static/showcase/er-input.webp" role="button" tabindex="0">
+<div class="tool-preview-card__image"><img alt="1. Load the earnings case — illustrative controlled-sample screenshot" loading="lazy" src="/static/showcase/er-input.webp"/></div>
+<div class="tool-preview-card__copy"><span>1. Load the earnings case</span><p>Enter company, consensus, actuals, forward estimates and guidance assumptions.</p></div>
+</article>
+<article class="tool-preview-card screenshot-open" data-caption="2. Review the dashboard" data-image="/static/showcase/er-dashboard.webp" role="button" tabindex="0">
+<div class="tool-preview-card__image"><img alt="2. Review the dashboard — illustrative controlled-sample screenshot" loading="lazy" src="/static/showcase/er-dashboard.webp"/></div>
+<div class="tool-preview-card__copy"><span>2. Review the dashboard</span><p>See earnings surprises, margin progression, valuation and guidance revisions.</p></div>
+</article>
+<article class="tool-preview-card screenshot-open" data-caption="3. Produce the note" data-image="/static/showcase/er-report.webp" role="button" tabindex="0">
+<div class="tool-preview-card__image"><img alt="3. Produce the note — illustrative controlled-sample screenshot" loading="lazy" src="/static/showcase/er-report.webp"/></div>
+<div class="tool-preview-card__copy"><span>3. Produce the note</span><p>Open the one-page sell-side-style research note and save it as PDF.</p></div>
+</article>
+</div>
+</section>
+<article class="card">
+<div class="card-head card-head--split">
+<div>
+<h3>Earnings Review Inputs</h3>
+<p>Analyse reported results versus prior-period performance, consensus expectations and management guidance.</p>
+</div>
+<span class="model-chip model-chip--muted">Controlled Sample Data</span>
+</div>
+<form class="er-form" id="er-form">
+<div class="form-grid er-form-grid">
+<fieldset>
+<legend>Company &amp; Market</legend>
+<div class="field"><label for="er-company-name">Company Name</label><input id="er-company-name" required="" type="text" value="Northstar Technologies plc"/></div>
+<div class="field"><label for="er-ticker">Ticker</label><input id="er-ticker" required="" type="text" value="NST"/></div>
+<div class="field"><label for="er-currency">Currency</label><input id="er-currency" required="" type="text" value="GBP"/></div>
+<div class="field"><label for="er-period">Reporting Period</label><input id="er-period" required="" type="text" value="FY2026 H1"/></div>
+<div class="field"><label for="er-share-price">Share Price</label><input id="er-share-price" min="0.01" required="" step="0.01" type="number" value="25"/></div>
+<div class="field"><label for="er-shares-outstanding">Shares Outstanding (m)</label><input id="er-shares-outstanding" min="0.01" required="" step="0.01" type="number" value="200"/></div>
+<div class="field"><label for="er-net-debt">Net Debt (m)</label><input id="er-net-debt" required="" step="0.01" type="number" value="600"/></div>
+</fieldset>
+<fieldset>
+<legend>Earnings vs Expectations</legend>
+<div aria-label="Prior, consensus and actual earnings inputs" class="er-input-table">
+<div class="er-input-row er-input-header"><span>Metric</span><span>Prior</span><span>Consensus</span><span>Actual</span></div>
+<div class="er-input-row"><span>Revenue</span><input id="er-prior-revenue" required="" step="0.01" type="number" value="1100"/><input id="er-consensus-revenue" required="" step="0.01" type="number" value="1200"/><input id="er-actual-revenue" required="" step="0.01" type="number" value="1260"/></div>
+<div class="er-input-row"><span>EBITDA</span><input id="er-prior-ebitda" required="" step="0.01" type="number" value="240"/><input id="er-consensus-ebitda" required="" step="0.01" type="number" value="280"/><input id="er-actual-ebitda" required="" step="0.01" type="number" value="300"/></div>
+<div class="er-input-row"><span>EPS</span><input id="er-prior-eps" required="" step="0.01" type="number" value="0.36"/><input id="er-consensus-eps" required="" step="0.01" type="number" value="0.42"/><input id="er-actual-eps" required="" step="0.01" type="number" value="0.46"/></div>
+<div class="er-input-row"><span>Free Cash Flow</span><input id="er-prior-fcf" required="" step="0.01" type="number" value="170"/><input id="er-consensus-fcf" required="" step="0.01" type="number" value="195"/><input id="er-actual-fcf" required="" step="0.01" type="number" value="210"/></div>
+</div>
+</fieldset>
+<fieldset>
+<legend>Forward &amp; Guidance</legend>
+<div class="field"><label for="er-forward-revenue">Forward Revenue (m)</label><input id="er-forward-revenue" min="0.01" required="" step="0.01" type="number" value="5200"/></div>
+<div class="field"><label for="er-forward-ebitda">Forward EBITDA (m)</label><input id="er-forward-ebitda" min="0.01" required="" step="0.01" type="number" value="1100"/></div>
+<div class="field"><label for="er-forward-eps">Forward EPS</label><input id="er-forward-eps" min="0.01" required="" step="0.01" type="number" value="1.60"/></div>
+<div class="guidance-input-group">
+<div class="guidance-input-title">Revenue Guidance (m)</div>
+<div class="guidance-pair"><span>Previous</span><input id="er-prev-rev-low" required="" type="number" value="4900"/><span>–</span><input id="er-prev-rev-high" required="" type="number" value="5100"/></div>
+<div class="guidance-pair"><span>Current</span><input id="er-new-rev-low" required="" type="number" value="5000"/><span>–</span><input id="er-new-rev-high" required="" type="number" value="5200"/></div>
+</div>
+<div class="guidance-input-group">
+<div class="guidance-input-title">EBITDA Guidance (m)</div>
+<div class="guidance-pair"><span>Previous</span><input id="er-prev-ebitda-low" required="" type="number" value="1000"/><span>–</span><input id="er-prev-ebitda-high" required="" type="number" value="1080"/></div>
+<div class="guidance-pair"><span>Current</span><input id="er-new-ebitda-low" required="" type="number" value="1050"/><span>–</span><input id="er-new-ebitda-high" required="" type="number" value="1130"/></div>
+</div>
+</fieldset>
+</div>
+<div class="form-actions">
+<button class="btn-primary" id="run-er" type="submit">Run Earnings Review</button>
+<button class="btn-secondary" disabled="" id="download-er-excel" type="button">Download Research Model</button>
+<button class="btn-secondary" disabled="" id="open-er-report" type="button">Open Research Note</button>
+<p aria-live="polite" class="status" id="er-status" role="status"></p>
+</div>
+<p class="disclosure">Illustrative post-earnings analysis using controlled sample data for a fictional issuer. Not investment advice or a recommendation.</p>
+</form>
+</article>
+<section hidden="" id="er-report">
+<article class="card er-report-header">
+<div class="er-report-title-row">
+<div>
+<p class="er-eyebrow">POST-EARNINGS REVIEW</p>
+<h3 id="er-report-company">—</h3>
+<p class="er-report-meta" id="er-report-meta">—</p>
+</div>
+<div class="er-scorecard-box">
+<span>Earnings Scorecard</span>
+<strong id="er-scorecard">—</strong>
+</div>
+</div>
+<div class="er-summary-strip">
+<span>Strongest surprise</span>
+<strong id="er-strongest-surprise">—</strong>
+</div>
+</article>
+<article class="card">
+<div class="card-head card-head--split">
+<div><h3>Earnings Snapshot</h3><p>Reported performance versus consensus expectations and the prior period.</p></div>
+<span class="model-chip">Actual vs Consensus</span>
+</div>
+<div class="er-kpi-grid" id="er-kpi-grid"></div>
+</article>
+<section class="analytics-grid er-analytics-grid">
+<article class="card analytics-card">
+<div class="card-head"><h3>Earnings Surprise</h3><p>Percentage variance of actual results versus consensus.</p></div>
+<div class="er-surprise-chart" id="er-surprise-chart"></div>
+</article>
+<article class="card analytics-card">
+<div class="card-head"><h3>Profitability &amp; Cash Conversion</h3><p>Margin delivery and cash generation quality.</p></div>
+<dl class="er-mini-metrics">
+<div><dt>Prior EBITDA Margin</dt><dd id="er-prior-margin">—</dd></div>
+<div><dt>Consensus EBITDA Margin</dt><dd id="er-consensus-margin">—</dd></div>
+<div><dt>Actual EBITDA Margin</dt><dd id="er-actual-margin">—</dd></div>
+<div><dt>Margin vs Consensus</dt><dd id="er-margin-surprise">—</dd></div>
+<div><dt>YoY Margin Change</dt><dd id="er-margin-yoy">—</dd></div>
+<div><dt>FCF / EBITDA</dt><dd id="er-fcf-conversion">—</dd></div>
+</dl>
+</article>
+</section>
+<article class="card">
+<div class="card-head"><h3>Earnings vs Expectations</h3><p>Core reported metrics with beat / miss classification.</p></div>
+<div class="table-wrap">
+<table class="forecast-table er-results-table">
+<thead><tr><th>Metric</th><th>Prior</th><th>Consensus</th><th>Actual</th><th>YoY</th><th>Surprise</th><th>Result</th></tr></thead>
+<tbody id="er-results-table-body"></tbody>
+</table>
+</div>
+</article>
+<section class="analytics-grid er-analytics-grid">
+<article class="card analytics-card">
+<div class="card-head"><h3>Guidance Revision</h3><p>Previous versus current management guidance ranges.</p></div>
+<div class="er-guidance-wrap" id="er-guidance-wrap"></div>
+</article>
+<article class="card analytics-card">
+<div class="card-head"><h3>Valuation Snapshot</h3><p>Forward valuation and balance-sheet context using submitted market inputs.</p></div>
+<dl class="er-valuation-grid">
+<div><dt>Share Price</dt><dd id="er-val-share-price">—</dd></div>
+<div><dt>Market Cap</dt><dd id="er-market-cap">—</dd></div>
+<div><dt>Enterprise Value</dt><dd id="er-enterprise-value">—</dd></div>
+<div><dt>Forward P/E</dt><dd id="er-forward-pe">—</dd></div>
+<div><dt>EV / EBITDA</dt><dd id="er-forward-ev-ebitda">—</dd></div>
+<div><dt>EV / Revenue</dt><dd id="er-forward-ev-revenue">—</dd></div>
+<div><dt>Net Debt / EBITDA</dt><dd id="er-net-debt-ebitda">—</dd></div>
+</dl>
+</article>
+</section>
+<section class="er-commentary-grid">
+<article class="card">
+<div class="card-head"><h3>Key Takeaways</h3><p>Automatically generated from the deterministic ER engine.</p></div>
+<ol class="er-commentary-list er-takeaways" id="er-takeaways"></ol>
+</article>
+<article class="card">
+<div class="card-head"><h3>Catalysts</h3><p>Data-driven positives to monitor.</p></div>
+<ul class="er-commentary-list er-catalysts" id="er-catalysts"></ul>
+</article>
+<article class="card">
+<div class="card-head"><h3>Risks</h3><p>Data-driven downside considerations.</p></div>
+<ul class="er-commentary-list er-risks" id="er-risks"></ul>
+</article>
+</section>
+<article class="card er-methodology-card">
+<div class="card-head"><h3>Methodology &amp; Limitations</h3></div>
+<p>The analysis compares controlled actual results with controlled consensus and prior-period values, derives valuation multiples from user-supplied market inputs, and classifies management guidance revisions. It does not use live market data, provide a rating, or constitute investment advice.</p>
+</article>
+</section>
+</section>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="app-footer__inner">
+      <div><strong>AnalystForge</strong><span>Portfolio-grade financial analysis workflows</span></div>
+      <div class="footer-notes"><span>Controlled sample data</span><span>Tested Python engines</span><span>Excel-ready outputs</span><span>Not investment advice</span></div>
+    </div>
+  </footer>
+
+  <div class="image-lightbox" id="image-lightbox" hidden aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close screenshot">×</button>
+    <figure><img id="lightbox-image" alt=""><figcaption id="lightbox-caption"></figcaption></figure>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

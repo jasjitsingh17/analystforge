@@ -1,0 +1,12 @@
+.git
+.github
+.venv
+__pycache__
+.pytest_cache
+archive
+backup_before_final_site
+outputs
+*.xlsx
+*.xlsm
+*.log
+.DS_Store

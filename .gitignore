@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# macOS / editors
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local / generated files
+outputs/*
+!outputs/.gitkeep
+*.xlsx
+*.xlsm
+*.xlsb
+*.backup
+backup_before_final_site/
+
+# Archived experiments are intentionally kept local, not published
+archive/
+
+# Secrets / environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Distribution / caches
+build/
+dist/
+*.egg-info/
+
+# Required M&A workbook source template
+!backend/templates/
+!backend/templates/ma_merger_model_template.xlsx
